@@ -1,0 +1,81 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Botones de contacto personalizados */
+.btn-whatsapp {
+    background-color: #25d366 !important;
+    border-radius: 25px !important;
+}
+
+.btn-email {
+    background-color: #5a5a5a !important;
+    border-radius: 25px !important;
+}
+
+.btn-call {
+    background-color: #00bcd4 !important;
+    border-radius: 25px !important;
+}
+
+/* Caja de información */
+.info-box {
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+/* Íconos de redes sociales */
+.social-icon {
+    font-size: 24px;
+}
+
+/* Aumenta el tamaño de fuente de h5 específicamente en tarjetas de la clase .card */
+.card .card-title {
+    font-size: 1.6rem !important; /* Aumenta el tamaño de fuente */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Aumenta el tamaño de fuente para todos los elementos h5 en el documento */
+h5 {
+    font-size: 1.5rem; /* Ajusta a tu preferencia */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem; /* Aumentado el tamaño de fuente */
+    line-height: 1.6;
+}
