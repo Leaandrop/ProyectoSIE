@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Bufete de Abogados - Contacto</title>
@@ -8,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 <body>
     <header class="bg-dark text-white text-center py-3">
         <h1 style="margin-bottom: 2rem;">Contáctanos</h1>
@@ -20,7 +22,8 @@
                     <a class="nav-link" href="servicios.html"><i class="bi bi-briefcase"></i> Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a>
+                    <a class="nav-link active" aria-current="page" href="contacto.html"><i class="bi bi-envelope"></i>
+                        Contacto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Acceso.html"><i class="bi bi-box-arrow-in-right"></i> Acceso</a>
@@ -33,7 +36,8 @@
         <!-- Botones de contacto -->
         <div class="row justify-content-center mb-4">
             <div class="col-md-3 text-center">
-                <a href="https://api.whatsapp.com/send?phone=3208263983" class="btn btn-whatsapp w-100 text-white mb-3 p-3">
+                <a href="https://api.whatsapp.com/send?phone=3208263983"
+                    class="btn btn-whatsapp w-100 text-white mb-3 p-3">
                     <i class="fab fa-whatsapp"></i> Asesoría WhatsApp
                 </a>
             </div>
@@ -53,20 +57,22 @@
         <div class="info-box p-4 text-center rounded shadow-sm">
             <h3>Información de contacto</h3>
             <p><strong>JHONATHAN VALBUENA</strong></p>
-            <p><strong>E-mail:</strong> <a href="mailto:juridicaycomercial@gmail.com">juridicaycomercial@gmail.com</a></p>
+            <p><strong>E-mail:</strong> <a href="mailto:juridicaycomercial@gmail.com">juridicaycomercial@gmail.com</a>
+            </p>
             <p><strong>Celular:</strong> <a href="tel:+573208263983">320 826 3983</a></p>
-            <p><strong>Dirección:</strong> Calle 35 No. 15-19, Centro Empresarial Guadalupe Plaza, Piso 3, Oficina 327, Dosquebradas, Risaralda</p>
-            <p><strong>Redes Sociales:</strong> 
-                <a href="https://www.facebook.com/profile.php?id=61561416937233" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <p><strong>Dirección:</strong> Calle 35 No. 15-19, Centro Empresarial Guadalupe Plaza, Piso 3, Oficina 327,
+                Dosquebradas, Risaralda</p>
+            <p><strong>Redes Sociales:</strong>
+                <a href="https://www.facebook.com/profile.php?id=61561416937233" target="_blank" class="social-icon"><i
+                        class="bi bi-facebook"></i></a>
             </p>
         </div>
 
-        <!-- Formulario de contacto -->
-        <h3 class="text-center mt-5 mb-4">O deja tus datos y nos contactaremos</h3>
-        <div class="container">
-            <form id="contactForm" class="row g-3 mt-5">
+        <section class="container my-5">
+            <!-- Formulario de contacto -->
+            <form id="contactForm" class="row g-3 mt-5" action="php/procesar_contacto.php" method="POST">
                 <div class="col-md-6">
-                    <label for="nombre" class="form-label">Nombre:</label>
+                    <label for="nombre" class="form-label">Nombre completo:</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="col-md-6">
@@ -83,18 +89,47 @@
                     </button>
                 </div>
             </form>
-        </div>
-    </section>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>Valbuena abogados &copy; 2024</p>
-    </footer>
+            <!-- Mensaje de éxito -->
+            <div id="mensajeExito" class="alert alert-success mt-4" style="display:none;">
+                ¡Gracias por contactarnos, te responderemos pronto!
+            </div>
+        </section>
 
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Evita que el formulario se envíe
-            alert("Excelente, tenemos tu registro y pronto nos contactaremos contigo!");
-        });
-    </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#contactForm").submit(function (event) {
+                    event.preventDefault(); // Evita el envío normal del formulario
+
+                    var formData = {
+                        nombre: $("#nombre").val(),
+                        email: $("#email").val(),
+                        mensaje: $("#mensaje").val()
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "php/procesar_contacto.php",
+                        data: formData,
+                        success: function (response) {
+                            // Muestra el mensaje de éxito
+                            $("#mensajeExito").show();
+                            // Limpia el formulario
+                            $("#contactForm")[0].reset();
+                        },
+                        error: function () {
+                            alert("Hubo un error al enviar tu mensaje. Intenta nuevamente.");
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <footer class="bg-dark text-white text-center py-3">
+            <p>Valbuena abogados &copy; 2024</p>
+        </footer>
+
 </body>
+
 </html>
