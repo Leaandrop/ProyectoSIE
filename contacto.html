@@ -33,7 +33,6 @@
     </header>
 
     <section class="container my-5">
-        <!-- Botones de contacto -->
         <div class="row justify-content-center mb-4">
             <div class="col-md-3 text-center">
                 <a href="https://api.whatsapp.com/send?phone=3208263983"
@@ -53,7 +52,6 @@
             </div>
         </div>
 
-        <!-- Caja de información de contacto -->
         <div class="info-box p-4 text-center rounded shadow-sm">
             <h3>Información de contacto</h3>
             <p><strong>JHONATHAN VALBUENA</strong></p>
@@ -69,7 +67,6 @@
         </div>
 
         <section class="container my-5">
-            <!-- Formulario de contacto -->
             <form id="contactForm" class="row g-3 mt-5" action="php/procesar_contacto.php" method="POST">
                 <div class="col-md-6">
                     <label for="nombre" class="form-label">Nombre completo:</label>
@@ -90,7 +87,6 @@
                 </div>
             </form>
 
-            <!-- Mensaje de éxito -->
             <div id="mensajeExito" class="alert alert-success mt-4" style="display:none;">
                 ¡Gracias por contactarnos, te responderemos pronto!
             </div>
@@ -100,7 +96,7 @@
         <script>
             $(document).ready(function () {
                 $("#contactForm").submit(function (event) {
-                    event.preventDefault(); // Evita el envío normal del formulario
+                    event.preventDefault();
 
                     var formData = {
                         nombre: $("#nombre").val(),
@@ -113,9 +109,7 @@
                         url: "php/procesar_contacto.php",
                         data: formData,
                         success: function (response) {
-                            // Muestra el mensaje de éxito
                             $("#mensajeExito").show();
-                            // Limpia el formulario
                             $("#contactForm")[0].reset();
                         },
                         error: function () {
@@ -125,6 +119,7 @@
                 });
             });
         </script>
+
 
         <footer class="bg-dark text-white text-center py-3">
             <p>Valbuena abogados &copy; 2024</p>
