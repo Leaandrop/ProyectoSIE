@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+// Si ya hay una sesión activa, redirigir al usuario a la página correspondiente
+if (isset($_SESSION['usuario_id'])) {
+    switch ($_SESSION['rol']) {
+        case "SuperAdmin":
+            header("Location: SuperAdmin.html");
+            break;
+        case "Admin":
+            header("Location: Administrador.html");
+            break;
+        case "Abogado":
+            header("Location: Abogado.html");
+            break;
+        case "Secretario":
+            header("Location: Secretario.html");
+            break;
+        case "Usuario":
+            header("Location: Usuario.html");
+            break;
+        default:
+            // En caso de un rol inesperado, redirigir a una página de error o cerrar la sesión
+            header("Location: logout.php");
+            break;
+    }
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,7 +61,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="Acceso.html">
+                    <a class="nav-link active" aria-current="page" href="acceso.php">
                         <i class="bi bi-box-arrow-in-right"></i> Acceso
                     </a>
                 </li>
@@ -80,22 +110,19 @@
             $("#loginForm").submit(function (event) {
                 event.preventDefault();
 
-                // Obtener los datos del formulario
                 var formData = {
                     email: $("#email").val(),
                     password: $("#password").val()
                 };
 
-                // Enviar los datos a través de AJAX como POST
                 $.ajax({
                     type: "POST",
                     url: "php/login.php",
                     data: formData,
                     success: function (response) {
-                        response = response.trim(); // Eliminar espacios en blanco adicionales
-                        console.log("Respuesta del servidor:", response); // Verificar respuesta
+                        response = response.trim();
+                        console.log("Respuesta del servidor:", response);
 
-                        // Redirigir según el rol recibido en la respuesta
                         switch (response) {
                             case "superadmin":
                                 window.location.href = "SuperAdmin.html";
@@ -122,7 +149,6 @@
                 });
             });
         });
-
     </script>
 </body>
 
