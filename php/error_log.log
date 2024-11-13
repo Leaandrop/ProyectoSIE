@@ -5,3 +5,11 @@ Stack trace:
 #1 {main}
   thrown in C:\xampp\htdocs\ProyectoSIE\php\detalles_caso.php on line 23
 [13-Nov-2024 00:59:14 Europe/Berlin] PHP Warning:  Undefined array key "usuario_id" in C:\xampp\htdocs\ProyectoSIE\php\crear_Caso.php on line 9
+[13-Nov-2024 01:52:38 Europe/Berlin] PHP Warning:  move_uploaded_file(uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:52:38 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\php6D0B.tmp&quot; to &quot;uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf&quot; in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:52:41 Europe/Berlin] PHP Warning:  move_uploaded_file(uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:52:41 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\php78A5.tmp&quot; to &quot;uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf&quot; in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:52:48 Europe/Berlin] PHP Warning:  move_uploaded_file(uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:52:48 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\php944C.tmp&quot; to &quot;uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf&quot; in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:53:58 Europe/Berlin] PHP Warning:  move_uploaded_file(uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14
+[13-Nov-2024 01:53:58 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move &quot;C:\xampp\tmp\phpA6A7.tmp&quot; to &quot;uploads/CONTRATO DE COMPRAVENTA DE BOLETAS.pdf&quot; in C:\xampp\htdocs\ProyectoSIE\php\guardar_capacitacion.php on line 14

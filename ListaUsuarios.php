@@ -40,11 +40,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gesArchi.html">
-                        <i class="bi bi-file-earmark-text"></i> Gestión de documentos
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="mCap.html">
                         <i class="bi bi-book"></i> Módulo de capacitación
                     </a>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Bufete de Abogados Valbuena - Módulo de Capacitación</title>
+    <title>Vista de Material de Capacitación - Bufete de Abogados Valbuena</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -41,29 +41,10 @@
     </header>
 
     <div class="container mt-5">
-        <h2>Módulo de Capacitación</h2>
-
-        <!-- Botón para ver materiales de capacitación -->
-        <div class="d-flex justify-content-end mb-3">
-            <button type="button" class="btn btn-secondary" onclick="window.location.href='VistaCapa.php'">Vista de Material de Capacitación</button>
+        <h2>Vista de Material de Capacitación</h2>
+        <div id="materialContainer" class="mt-4">
+            <!-- Aquí se cargará el material de capacitación -->
         </div>
-
-        <!-- Formulario simplificado para agregar enlaces -->
-        <form id="capacitacionForm" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" required>
-            </div>
-            <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="url" class="form-label">URL del Enlace</label>
-                <input type="url" class="form-control" id="url" name="url" placeholder="https://example.com" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar Enlace</button>
-        </form>
     </div>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -71,26 +52,41 @@
     </footer>
 
     <script>
-        document.getElementById('capacitacionForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            fetch('php/guardar_capacitacion.php', {
-                method: 'POST',
-                body: formData
-            })
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("php/obtener_material_capacitacion.php")
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert("Enlace de capacitación agregado exitosamente.");
-                        document.getElementById('capacitacionForm').reset();
+                        const container = document.getElementById("materialContainer");
+                        container.innerHTML = ''; // Limpiar el contenedor para asegurar que se llenará correctamente
+
+                        data.materiales.forEach(material => {
+                            const materialDiv = document.createElement("div");
+                            materialDiv.classList.add("card", "mb-3");
+
+                            let content = `
+                                <div class="card-body">
+                                    <h5 class="card-title">${material.titulo}</h5>
+                                    <p class="card-text">${material.descripcion}</p>
+                                    <p class="card-text"><strong>Tipo:</strong> ${material.tipo}</p>`;
+
+                            if (material.tipo === "archivo") {
+                                content += `<a href="${material.url}" target="_blank" class="btn btn-primary">Descargar Archivo</a>`;
+                            } else if (material.tipo === "enlace") {
+                                content += `<a href="${material.url}" target="_blank" class="btn btn-primary">Ver Enlace</a>`;
+                            }
+
+                            content += `</div>`;
+                            materialDiv.innerHTML = content;
+                            container.appendChild(materialDiv);
+                        });
                     } else {
-                        alert("Error al agregar el enlace.");
+                        alert("Error al cargar los materiales de capacitación.");
                     }
                 })
                 .catch(error => {
-                    console.error("Error al agregar el enlace:", error);
-                    alert("Ocurrió un error al agregar el enlace.");
+                    console.error("Error al cargar el material:", error);
+                    alert("Ocurrió un error al cargar el material de capacitación.");
                 });
         });
     </script>

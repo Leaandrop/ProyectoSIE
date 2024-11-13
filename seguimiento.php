@@ -41,11 +41,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gesArchi.html">
-                        <i class="bi bi-file-earmark-text"></i> Gestión de documentos
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="mCap.html">
                         <i class="bi bi-book"></i> Módulo de capacitación
                     </a>
@@ -61,7 +56,8 @@
         </nav>
     </header>
 
-    <div class="container table-section">
+    <!-- Aquí agregamos una clase de margen superior -->
+    <div class="container table-section mt-4">
         <h3>Casos Activos</h3>
         <p>Aquí puedes ver el seguimiento de todos los casos registrados en el sistema.</p>
 

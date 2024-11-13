@@ -80,3 +80,5 @@
 [12-Nov-2024 21:36:01 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\ProyectoSIE\seguimiento.php on line 93
 [13-Nov-2024 00:25:13 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ProyectoSIE\EditUsu.php on line 133
 [13-Nov-2024 00:25:13 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ProyectoSIE\EditUsu.php on line 137
+[13-Nov-2024 01:48:27 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ProyectoSIE\EditUsu.php on line 147
+[13-Nov-2024 01:48:27 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ProyectoSIE\EditUsu.php on line 152
