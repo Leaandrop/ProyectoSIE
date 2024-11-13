@@ -1,0 +1,7 @@
+
+[12-Nov-2024 20:49:05 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'valbuenaabogados.abogados' doesn't exist in C:\xampp\htdocs\ProyectoSIE\php\detalles_caso.php:23
+Stack trace:
+#0 C:\xampp\htdocs\ProyectoSIE\php\detalles_caso.php(23): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ProyectoSIE\php\detalles_caso.php on line 23
+[13-Nov-2024 00:59:14 Europe/Berlin] PHP Warning:  Undefined array key "usuario_id" in C:\xampp\htdocs\ProyectoSIE\php\crear_Caso.php on line 9
